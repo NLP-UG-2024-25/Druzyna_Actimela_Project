@@ -17,10 +17,40 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="image" role="img" aria-label="photo of destroyed buildings"></div>
-    <div class="caption">Interesting facts about earthquakes will be displayed on each slide.</div>
-  </section>
+ <section class="hero slider">
+
+  <input type="radio" name="slider" id="slide1" checked>
+  <input type="radio" name="slider" id="slide2">
+  <input type="radio" name="slider" id="slide3">
+
+  <div class="slides">
+
+    <div class="slide s1">
+      <img src="https://live.staticflickr.com/4016/4274632760_034469a478_b.jpg" alt="Earthquake damage">
+      <div class="caption">Earthquakes can release energy equal to thousands of atomic bombs.</div>
+    </div>
+
+    <div class="slide s2">
+      <img src="https://live.staticflickr.com/5176/5472636511_6a7bc4518b_b.jpg" alt="Tectonic plates">
+      <div class="caption">Most earthquakes occur along tectonic plate boundaries.</div>
+    </div>
+
+    <div class="slide s3">
+      <img src="https://live.staticflickr.com/4058/4273890959_a460279fd7_b.jpg" alt="Seismic activity">
+      <div class="caption">Small earthquakes happen every day around the world.</div>
+    </div>
+
+  </div>
+
+  <div class="dots">
+    <label for="slide1" aria-label="Slide 1"></label>
+    <label for="slide2" aria-label="Slide 2"></label>
+    <label for="slide3" aria-label="Slide 3"></label>
+  </div>
+
+ </section>
+
+
 
 <main class="wrap">
   <div class="card">
