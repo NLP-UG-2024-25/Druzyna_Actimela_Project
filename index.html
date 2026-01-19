@@ -4,93 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Earthquakes — Simple Layout</title>
+  <link rel="icon" href="logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    
-    
-    :root{
-      --bg:#0f0f10;
-      --card:#151515;
-      --muted:#999;
-      --accent:#e63946; 
-      --white:#fff;
-      --gap:24px;
-      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-
-    *{box-sizing:border-box}
-    html, body{height:100%;margin:0;background:var(--bg);color:var(--white)}
-
-    header{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:18px 36px;
-      border-bottom:1px solid rgba(255,255,255,0.03);
-    }
-    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
-    .logo .globe{font-size:20px}
-    .site-name{letter-spacing:0.6px}
-
-    
-
-
-    /* --- Slides - needs to be finished --- */
-    .hero{
-      max-width:800px;
-      margin:22px auto 18px;
-      text-align:center;
-    }
-    .hero .image{
-      height:180px;
-      background:#222 url('images/hero.jpg') center/cover no-repeat;
-      border-radius:4px;
-      overflow:hidden;
-      margin-bottom:12px;
-    }
-    .hero .caption{
-      font-size:14px;
-      color:#ccc;
-    }
-
-    main.wrap{
-      max-width:800px;
-      margin:18px auto;
-      padding:0 18px;
-    }
-    .card{
-      background:var(--card);
-      padding:26px;
-      border-radius:6px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.4);
-      margin-bottom:24px;
-    }
-    h1{margin:0 0 10px;font-size:32px;letter-spacing:1px}
-    p.lead{color:var(--muted);margin:6px 0 20px}
-
-    .fields{
-      margin-top:18px;
-      color:var(--accent);
-      line-height:1.8;
-    }
-    .fields span{display:block}
-    .underscore{opacity:0.6;margin-left:6px}
-
-    footer{
-      max-width:800px;
-      margin:26px auto;
-      color:var(--muted);
-      font-size:13px;
-      padding:0 18px;
-      text-align:center;
-    }
-
-    @media (max-width:500px){
-      h1{font-size:26px}
-      .hero .image{height:140px}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <div class="logo">
@@ -104,31 +22,37 @@
     <div class="caption">Interesting facts about earthquakes will be displayed on each slide.</div>
   </section>
 
-  <main class="wrap">
-    <div class="card">
-      <h1>EARTHQUAKE INFORMATION</h1>
-      <p class="lead">This map shows recorded earthquakes across the globe. Select a pin to learn about its magnitude and see a visual simulation of how strongly it shook the ground.</p>
+<main class="wrap">
+  <div class="card">
+    <h1>EARTHQUAKE MAP</h1>
+    <p class="lead">
+      This map shows recorded earthquakes across the globe. Select a pin to learn about its magnitude and see a visual simulation of how strongly it shook the ground.
+    </p>
 
-      <!-- Placeholder image -->
-  <img src="map.png" alt="Map" style="width:100%; max-width:450px; display:block; margin:0 auto 16px; border-radius:4px;">
-
-  <div class="building"></div>
-      <div class="fields">
-        <span>Magnitude (Richter scale): <span class="underscore">__</span></span>
-        <span>Location: <span class="underscore">__</span></span>
-        <span>Date & Time: <span class="underscore">__</span></span>
-        <span>Depth: <span class="underscore">__</span></span>
-        <span>Distance from you: <span class="underscore">__</span></span>
+  
+    <div class="info-row">
+      <!-- Map on the left -->
+      <div class="map">
+        <img src="map.png" alt="Map" class="map-img">
       </div>
 
-<!-- Use CSS to fix the building's placement -->
-
+      <!-- Building image on the right -->
       <div class="building-placeholder">
-      <img src="building.png" alt="Building placeholder" style="max-width:350px; width:250%; display:block; border-radius:4px;">
+        <img src="building.png" alt="Building">
+      </div>
     </div>
+
+    <!-- Earthquake details -->
+    <div class="fields">
+      <span>Magnitude (Richter scale): <span class="underscore">__</span></span>
+      <span>Location: <span class="underscore">__</span></span>
+      <span>Date & Time: <span class="underscore">__</span></span>
+      <span>Depth: <span class="underscore">__</span></span>
+      <span>Distance from you: <span class="underscore">__</span></span>
     </div>
-</div>
-  </main>
+  </div>
+</main>
+
 
   <footer>
     
