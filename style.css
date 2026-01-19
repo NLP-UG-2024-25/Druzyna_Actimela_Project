@@ -100,6 +100,16 @@ main.wrap{
   width: 100%;
   border-radius: 4px;
   display: block;
+  cursor: pointer;
+}
+
+.red-map {
+  filter: brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5);
+}
+
+.fade-back {
+  filter: none;
+  transition: filter 5s ease;
 }
 
 /* Building image styling */
