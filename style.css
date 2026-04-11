@@ -29,6 +29,7 @@ header{
 
 .slide {
   min-width: 100%;
+  position: relative;
 }
 
 #slide1:checked ~ .slides { transform: translateX(0%); }
@@ -195,18 +196,19 @@ main.wrap{
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
+  display: block;
 }
 
 .slide .caption {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
+  z-index: 10; 
+  background: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   color: white;
   border-radius: 8px;
   font-size: 14px;
+  text-align: center;
 }
 
 .dots {
