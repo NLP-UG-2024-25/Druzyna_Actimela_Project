@@ -225,9 +225,10 @@ main.wrap{
 
 #slide1:checked ~ .dots label[for="slide1"],
 #slide2:checked ~ .dots label[for="slide2"],
-#slide3:checked ~ .dots label[for="slide3"] 
+#slide3:checked ~ .dots label[for="slide3"], 
 #slide4:checked ~ .dots label[for="slide4"],
-#slide5:checked ~ .dots label[for="slide5"]{
-  background: white;
+#slide5:checked ~ .dots label[for="slide5"] {
+  background: #fff;
+  border-color: var(--accent);
 }
 
