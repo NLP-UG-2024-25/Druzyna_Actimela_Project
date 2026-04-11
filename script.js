@@ -19,3 +19,17 @@ img.addEventListener('click', () => {
     img.classList.add('fade-back');
   }, 0);
 });
+
+let currentSlide = 1;
+
+function autoSlide() {
+  currentSlide++;
+
+  if (currentSlide > 3) {
+    currentSlide = 1;
+  }
+
+  document.getElementById('slide' + currentSlide).checked = true;
+}
+
+setInterval(autoSlide, 4000);
