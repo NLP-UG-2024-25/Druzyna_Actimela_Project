@@ -25,7 +25,7 @@ let currentSlide = 1;
 function autoSlide() {
   currentSlide++;
 
-  if (currentSlide > 3) {
+  if (currentSlide > 5) {
     currentSlide = 1;
   }
 

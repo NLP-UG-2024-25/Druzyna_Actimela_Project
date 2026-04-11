@@ -201,6 +201,8 @@ main.wrap{
 #slide1:checked ~ .slides { transform: translateX(0%); }
 #slide2:checked ~ .slides { transform: translateX(-100%); }
 #slide3:checked ~ .slides { transform: translateX(-200%); }
+#slide4:checked ~ .slides { transform: translateX(-300%); }
+#slide5:checked ~ .slides { transform: translateX(-400%); }
 
 .dots {
   position: absolute;
@@ -217,11 +219,15 @@ main.wrap{
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
+  border: 2px solid var(--accent);
+  box-sizing: content-box;
 }
 
 #slide1:checked ~ .dots label[for="slide1"],
 #slide2:checked ~ .dots label[for="slide2"],
-#slide3:checked ~ .dots label[for="slide3"] {
+#slide3:checked ~ .dots label[for="slide3"] 
+#slide4:checked ~ .dots label[for="slide4"],
+#slide5:checked ~ .dots label[for="slide5"]{
   background: white;
 }
 
