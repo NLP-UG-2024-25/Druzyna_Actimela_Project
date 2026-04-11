@@ -156,6 +156,10 @@ main.wrap{
   position: relative;
 }
 
+.slider input {
+  display: none;
+}
+
 .slides {
   display: flex;
   height: 100%;
