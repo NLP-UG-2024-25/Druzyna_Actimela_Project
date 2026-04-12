@@ -11,13 +11,17 @@ function playSound() {
   audio.play();
 }
 
+
 img.addEventListener('click', () => {
   playSound();
-  img.classList.remove('red-map', 'fade-back');
-  img.classList.add('red-map');
+  const light = document.body.dataset.theme === 'light';
+  img.style.transition = '';
+  img.style.filter = 'sepia(1) hue-rotate(-50deg) saturate(5)';
+
   setTimeout(() => {
-    img.classList.add('fade-back');
-  }, 0);
+    img.style.transition = 'filter 5s ease';
+    img.style.filter = light ? 'brightness(0.3)' : '';
+  }, 300);
 });
 
 let currentSlide = 1;
@@ -33,3 +37,15 @@ function autoSlide() {
 }
 
 setInterval(autoSlide, 4000);
+
+const themeBtn = document.getElementById('theme-toggle');
+const saved = localStorage.getItem('theme') || 'dark';
+document.body.dataset.theme = saved;
+themeBtn.textContent = saved === 'light' ? '🌙' : '☀️';
+
+themeBtn.addEventListener('click', () => {
+  const next = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+  document.body.dataset.theme = next;
+  themeBtn.textContent = next === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('theme', next);
+});
