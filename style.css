@@ -264,3 +264,87 @@ main.wrap{
   border-color: #e63946;
 }
 
+/* Richter Card Specific Styles */
+.richter-card h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+    color: var(--white);
+}
+
+.richter-card h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+}
+
+.richter-description {
+    margin-bottom: 25px;
+    color: var(--white);
+}
+
+.energy-callout {
+    background: rgba(230, 57, 70, 0.1); /* Light tint of your red accent */
+    border-left: 4px solid var(--accent);
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.richter-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.level-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.level-item:last-child {
+    border-bottom: none;
+}
+
+.level-badge {
+    min-width: 65px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff; /* Always white text inside badges */
+}
+
+.level-badge.low  { background: #2a9d8f; }
+.level-badge.mid  { background: #e9c46a; color: #000; } /* Yellow needs dark text for contrast */
+.level-badge.high { background: var(--accent); }
+
+.level-text {
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+.source-tag {
+    margin-top: 25px;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Light Theme overrides for the Yellow Badge text */
+[data-theme="light"] .level-badge.mid {
+    color: #000;
+}
