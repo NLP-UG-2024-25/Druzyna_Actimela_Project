@@ -45,6 +45,11 @@ body {
   line-height: 1.5;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .theme-toggle {
   margin-left: auto;
   background: none;
@@ -60,7 +65,12 @@ body {
 
 
 *{box-sizing:border-box}
-html, body{height:100%;margin:0;background:var(--bg);color:var(--white)}
+
+html, body{
+  min-height: 100vh;
+  margin:0;
+  background:var(--bg);
+  color:var(--white)}
 
 header{
   display:flex;
@@ -74,13 +84,12 @@ header{
 .site-name{letter-spacing:0.6px;font-size:1.05rem}
 
 main.wrap{
-  max-width:800px;
-  margin:18px auto;
   padding:0 18px;
+  flex: 1;
 }
 
 .card {
-  background: var(--bg);
+  background: var(--card);
   padding: 24px;
   border-radius: 6px;
   max-width: 800px;
@@ -207,6 +216,7 @@ main.wrap{
   overflow: hidden;
   aspect-ratio: 18 / 8;
   position: relative;
+  background: var(--card);
 }
 
 .slider input {
@@ -349,7 +359,7 @@ main.wrap{
 }
 
 .level-badge.low  { background: #2a9d8f; }
-.level-badge.mid  { background: #e9c46a; color: #000; } /* Yellow needs dark text for contrast */
+.level-badge.mid  { background: #e9c46a; color: #000; } 
 .level-badge.high { background: var(--accent); }
 
 .level-text {
@@ -385,7 +395,7 @@ main.wrap{
   }
 }
 
-/* Light Theme overrides for the Yellow Badge text */
+
 [data-theme="light"] .level-badge.mid {
     color: #000;
 }
