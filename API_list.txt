@@ -2,8 +2,8 @@ Lista obiecujących linków API.
 1. https://www.freepublicapis.com/earthquake-catalog-api
 2. https://developers.google.com/maps/documentation/javascript/examples/layer-data-quakes#maps_layer_data_quakes_simple-javascript
 
-USGS Earthquake API
 
+USGS Earthquake API
 https://earthquake.usgs.gov/fdsnws/event/1/
 
 USEFUL LINKS ABOUT GEOJSON
