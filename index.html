@@ -6,11 +6,12 @@
   <title>Earthquakes — Simple Layout</title>
   <link rel="icon" href="logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-
-  <header>
+<header>
   <div class="logo">
     <img src="logo.png" alt="My Logo" style="height:40px;">
     <div class="site-name">EARTHQUAKES</div>
@@ -18,8 +19,7 @@
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀️</button>
 </header>
 
- <section class="hero slider">
-
+<section class="hero slider">
   <input type="radio" name="slider" id="slide1" checked>
   <input type="radio" name="slider" id="slide2">
   <input type="radio" name="slider" id="slide3">
@@ -27,45 +27,36 @@
   <input type="radio" name="slider" id="slide5">
 
   <div class="slides">
-
     <div class="slide s1">
       <img src="https://live.staticflickr.com/4016/4274632760_034469a478_b.jpg" alt="Earthquake damage">
       <div class="caption">Earthquakes can release energy equal to thousands of atomic bombs.</div>
     </div>
-
     <div class="slide s2">
       <img src="https://live.staticflickr.com/5176/5472636511_6a7bc4518b_b.jpg" alt="Tectonic plates">
       <div class="caption">Most earthquakes occur along tectonic plate boundaries.</div>
     </div>
-
     <div class="slide s3">
       <img src="https://live.staticflickr.com/4058/4273890959_a460279fd7_b.jpg" alt="Seismic activity">
       <div class="caption">The largest earthquake ever recorded was a magnitude 9.5 in Chile in 1960.</div>
     </div>
-    
     <div class="slide s4">
       <img src="https://img.freepik.com/free-photo/broken-road-separating-into-two-parts-by-earthquake-city-ai-generative_123827-23739.jpg" alt="Earthquake in the city">
       <div class="caption">Small earthquakes happen every day around the world.</div>
     </div>
-
     <div class="slide s5">
       <img src="https://img.freepik.com/free-photo/landscape-extreme-earthquake_23-2150879865.jpg" alt="Landscape earthquake">
       <div class="caption">Earthquakes can happen at any depth, from the surface to 700 kilometers deep.</div>
     </div>
-
   </div>
 
   <div class="dots">
     <label for="slide1" aria-label="Slide 1"></label>
     <label for="slide2" aria-label="Slide 2"></label>
     <label for="slide3" aria-label="Slide 3"></label>
-    <label for="slide4" aria-label="Slide 2"></label>
-    <label for="slide5" aria-label="Slide 3"></label>
+    <label for="slide4" aria-label="Slide 4"></label>
+    <label for="slide5" aria-label="Slide 5"></label>
   </div>
-
- </section>
-
-
+</section>
 
 <main class="wrap">
   <div class="card">
@@ -74,20 +65,12 @@
       This map shows recorded earthquakes across the globe. Select a pin to learn about its magnitude and see a visual simulation of how strongly it shook the ground.
     </p>
 
-  
     <div class="info-row">
-      <!-- Map on the left -->
       <div class="map">
-        <img src="map.png" alt="Map" class="map-img" id="map-img">
-      </div>
-
-      <!-- Building image on the right -->
-      <div class="building-placeholder">
-        <img src="building.png" alt="Building">
+        <div id="map"></div>
       </div>
     </div>
 
-    <!-- Earthquake details -->
     <div class="fields">
       <span>Magnitude (Richter scale): <span id="eq-magnitude" class="underscore">__</span></span>
       <span>Location: <span id="eq-location" class="underscore">__</span></span>
@@ -98,8 +81,7 @@
   </div>
 </main>
 
-<!-- Richter scale info -->
-  <section class="wrap">
+<section class="wrap">
   <div class="card richter-card">
     <h2>THE RICHTER SCALE</h2>
     <p class="lead">Understanding how we measure the power beneath our feet.</p>
@@ -130,17 +112,15 @@
   </div>
 </section>
   
-
-    </span>
-    <footer class="site-footer">
+<footer class="site-footer">
   <div class="footer-content">
     <p>&copy; 2026 Druzyna Actimela Project.</p>
     <p>Built by <a href="https://github.com/NLP-UG-2024-25" target="_blank">NLP-UG-2024-25</a></p>
     <p>API: https://www.freepublicapis.com/earthquake-catalog-api</p>
-    
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

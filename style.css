@@ -31,21 +31,20 @@ html {
   --white: #1a1d23;
 }
 
-[data-theme="light"] .map-img {
-  filter: invert(0.85);
+/* W LIGHT MODE MAPA MA BYĆ JASNA - usuwamy jakiekolwiek filtry odwracające */
+[data-theme="light"] #map {
+  filter: none !important;
 }
 
-[data-theme="light"] .building-placeholder img {
-  filter: invert(1);
+/* W DARK MODE MAPA DOSTAWALNIE CIEMNIEJE */
+[data-theme="dark"] #map {
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.7) contrast(1.2) !important;
 }
 
 body {
   transition: background 0.3s, color 0.3s;
   font-size: 1rem;
   line-height: 1.5;
-}
-
-body {
   display: flex;
   flex-direction: column;
 }
@@ -63,28 +62,27 @@ body {
 }
 .theme-toggle:hover { border-color: var(--accent); }
 
+* { box-sizing: border-box; }
 
-*{box-sizing:border-box}
-
-html, body{
+html, body {
   min-height: 100vh;
-  margin:0;
-  background:var(--bg);
-  color:var(--white)}
-
-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 36px;
-  border-bottom:1px solid rgba(255,255,255,0.03);
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
 }
-.logo{display:flex;align-items:center;gap:10px;font-weight:700}
-.logo .globe{font-size:20px}
-.site-name{letter-spacing:0.6px;font-size:1.05rem}
 
-main.wrap{
-  padding:0 18px;
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.site-name { letter-spacing: 0.6px; font-size: 1.05rem; }
+
+main.wrap {
+  padding: 0 18px;
   flex: 1;
 }
 
@@ -97,8 +95,6 @@ main.wrap{
   color: var(--white);
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
-
-
 
 .card h1 {
   font-size: 2rem;
@@ -125,50 +121,32 @@ main.wrap{
   font-size: 1rem;
 }
 
-
 .info-row {
   display: flex;
   gap: 24px;
   align-items: flex-start;
-  flex-wrap: wrap; /* stacks on small screens */
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
-/* Map styling */
 .map {
   flex: 1;
   min-width: 300px;
 }
-.map-img {
+
+/* LEAFLET CONTAINER STYLES */
+#map {
   width: 100%;
-  border-radius: 4px;
-  display: block;
-  cursor: pointer;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.red-map {
-  filter: brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5);
-}
-
-.fade-back {
-  filter: none;
-  transition: filter 5s ease;
-}
-
-/* Building image styling */
-.building-placeholder img {
-  margin-top: 40px;
-  width: 300px;
-  height: auto;
-  border-radius: 4px;
-  
-}
-
-/* Earthquake fields below */
 .fields {
-  color: #e63946; /* red accent for the text */
+  color: #e63946;
   line-height: 1.8;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .fields span {
@@ -176,23 +154,20 @@ main.wrap{
 }
 
 .underscore {
-  opacity: 0.6;
+  opacity: 0.8;
   margin-left: 4px;
+  color: var(--white); /* Aby tekst danych miał kolor motywu, a nie cały na czerwono */
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .info-row {
     flex-direction: column;
     align-items: center;
   }
-  .building-placeholder img {
-    margin-top: 12px;
-  }
 }
 
 .site-footer {
-  background: var(--card);  /* same as cards */
+  background: var(--card);
   color: var(--muted);
   padding: 20px 18px;
   text-align: center;
@@ -202,7 +177,7 @@ main.wrap{
 }
 
 .site-footer a {
-  color: var(--accent);  /* your red accent */
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -248,8 +223,6 @@ main.wrap{
   left: 50%;
   transform: translateX(-50%);
   z-index: 99; 
-  
- 
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 12px 24px;
@@ -259,7 +232,6 @@ main.wrap{
   width: 80%; 
   pointer-events: none; 
 }
-
 
 #slide1:checked ~ .slides { transform: translateX(0%); }
 #slide2:checked ~ .slides { transform: translateX(-100%); }
@@ -295,67 +267,66 @@ main.wrap{
   border-color: #e63946;
 }
 
-/* Richter Card Specific Styles */
 .richter-card h2 {
   font-size: 1.75rem;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 30px;
-    color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 30px;
+  color: var(--white);
 }
 
 .richter-card h2::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background-color: var(--accent);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
 }
 
 .richter-description {
-    margin-bottom: 25px;
-    color: var(--white);
+  margin-bottom: 25px;
+  color: var(--white);
 }
 
 .energy-callout {
-    background: rgba(230, 57, 70, 0.1); /* Light tint of your red accent */
-    border-left: 4px solid var(--accent);
-    padding: 15px;
-    margin: 20px 0;
-    font-size: 0.95rem;
+  background: rgba(230, 57, 70, 0.1);
+  border-left: 4px solid var(--accent);
+  padding: 15px;
+  margin: 20px 0;
+  font-size: 0.95rem;
 }
 
 .richter-levels {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .level-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .level-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .level-badge {
-    min-width: 65px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #fff; /* Always white text inside badges */
+  min-width: 65px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .level-badge.low  { background: #2a9d8f; }
@@ -363,39 +334,25 @@ main.wrap{
 .level-badge.high { background: var(--accent); }
 
 .level-text {
-    font-size: 0.9rem;
-    color: var(--white);
+  font-size: 0.9rem;
+  color: var(--white);
 }
 
 .source-tag {
-    margin-top: 25px;
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  margin-top: 25px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 600px) {
-  .card h1 {
-    font-size: 1.6rem;
-  }
-
-  .richter-card h2 {
-    font-size: 1.35rem;
-  }
-
-  .card .lead,
-  .slide .caption,
-  .level-text {
-    font-size: 0.92rem;
-  }
-
-  .site-footer {
-    font-size: 0.8rem;
-  }
+  .card h1 { font-size: 1.6rem; }
+  .richter-card h2 { font-size: 1.35rem; }
+  .card .lead, .slide .caption, .level-text { font-size: 0.92rem; }
+  .site-footer { font-size: 0.8rem; }
 }
 
-
 [data-theme="light"] .level-badge.mid {
-    color: #000;
+  color: #000;
 }
