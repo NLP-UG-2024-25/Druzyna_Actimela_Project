@@ -1,0 +1,23 @@
+[33m28896ab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Fix repo structure
+[33m9b245ba[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Buttons color changes
+[33m95c8c5c[m Buttons color changes
+[33m634f0ad[m Added more slides
+[33m5f3ffcb[m buttons on slides
+[33m195ed59[m caption positioning
+[33m1de2869[m some changes
+[33m8addc5a[m automatic slider improvement
+[33md79a398[m Automatic slider correction
+[33m48aaba4[m Added automatic slider
+[33mada3fc7[m Update HTML and CSS (slider images and styles)
+[33mc9543ad[m add playing sound and changing map color when the map is clicked
+[33m52824f2[m add sound file
+[33m1b42bee[m add script.js to index.html
+[33mb4b6f6a[m Merge pull request #10 from NLP-UG-2024-25/anibranch
+[33mf9b7e41[m[33m ([m[1;31morigin/anibranch[m[33m)[m Footer modification
+[33m9195d56[m Merge pull request #9 from NLP-UG-2024-25/anibranch
+[33m999f0c4[m Favicon creation + html and css division
+[33m01b673b[m Added the HTML layout
+[33md2c23b8[m Add files
+[33mdba0688[m Add list of promising API links
+[33mee00def[m short description
+[33m121f314[m Initial commit

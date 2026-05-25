@@ -1,0 +1,601 @@
+{
+
+  "type": "FeatureCollection",
+
+  "metadata": {
+
+    "generated": 1779051660000,
+
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-05-16&endtime=2026-05-17&minmagnitude=5",
+
+    "title": "USGS Earthquakes",
+
+    "status": 200,
+
+    "api": "2.4.0",
+
+    "count": 7
+
+  },
+
+  "features": [
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5.4,
+
+        "place": "92 km E of Port-Vila, Vanuatu",
+
+        "time": 1778947084288,
+
+        "updated": 1779035262201,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy90",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy90&format=geojson",
+
+        "felt": null,
+
+        "cdi": null,
+
+        "mmi": 3.955,
+
+        "alert": "green",
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 449,
+
+        "net": "us",
+
+        "code": "6000sy90",
+
+        "ids": ",usauto6000sy90,us6000sy90,",
+
+        "sources": ",usauto,us,",
+
+        "types": ",internal-moment-tensor,losspager,moment-tensor,origin,phase-data,shakemap,",
+
+        "nst": 109,
+
+        "dmin": 3.064,
+
+        "rms": 0.58,
+
+        "gap": 42,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 5.4 - 92 km E of Port-Vila, Vanuatu"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          169.1752,
+
+          -17.8726,
+
+          10
+
+        ]
+
+      },
+
+      "id": "us6000sy90"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5.7,
+
+        "place": "33 km NE of Auki, Solomon Islands",
+
+        "time": 1778944676098,
+
+        "updated": 1779032806012,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy8k",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy8k&format=geojson",
+
+        "felt": 1,
+
+        "cdi": 3.1,
+
+        "mmi": 6.685,
+
+        "alert": "green",
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 500,
+
+        "net": "us",
+
+        "code": "6000sy8k",
+
+        "ids": ",us6000sy8k,usauto6000sy8k,",
+
+        "sources": ",us,usauto,",
+
+        "types": ",dyfi,ground-failure,internal-moment-tensor,losspager,moment-tensor,origin,phase-data,shakemap,",
+
+        "nst": 175,
+
+        "dmin": 1.3,
+
+        "rms": 1.02,
+
+        "gap": 45,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 5.7 - 33 km NE of Auki, Solomon Islands"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          160.9161,
+
+          -8.5526,
+
+          23.374
+
+        ]
+
+      },
+
+      "id": "us6000sy8k"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 6,
+
+        "place": "70 km ESE of Codrington, Antigua and Barbuda",
+
+        "time": 1778943003503,
+
+        "updated": 1779031347886,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy84",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy84&format=geojson",
+
+        "felt": 121,
+
+        "cdi": 5,
+
+        "mmi": 4.65,
+
+        "alert": "green",
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 614,
+
+        "net": "us",
+
+        "code": "6000sy84",
+
+        "ids": ",pt26136000,us6000sy84,usauto6000sy84,attf4x7b,",
+
+        "sources": ",pt,us,usauto,at,",
+
+        "types": ",dyfi,ground-failure,internal-moment-tensor,internal-origin,losspager,moment-tensor,origin,phase-data,shakemap,",
+
+        "nst": 209,
+
+        "dmin": 0.601,
+
+        "rms": 0.95,
+
+        "gap": 20,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 6.0 - 70 km ESE of Codrington, Antigua and Barbuda"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          -61.1771,
+
+          17.5127,
+
+          30.038
+
+        ]
+
+      },
+
+      "id": "us6000sy84"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5.2,
+
+        "place": "94 km E of Port-Vila, Vanuatu",
+
+        "time": 1778940474649,
+
+        "updated": 1778956363040,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy7u",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy7u&format=geojson",
+
+        "felt": null,
+
+        "cdi": null,
+
+        "mmi": null,
+
+        "alert": null,
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 416,
+
+        "net": "us",
+
+        "code": "6000sy7u",
+
+        "ids": ",usauto6000sy7u,us6000sy7u,",
+
+        "sources": ",usauto,us,",
+
+        "types": ",internal-moment-tensor,moment-tensor,origin,phase-data,",
+
+        "nst": 97,
+
+        "dmin": 3.003,
+
+        "rms": 0.55,
+
+        "gap": 67,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 5.2 - 94 km E of Port-Vila, Vanuatu"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          169.2036,
+
+          -17.7708,
+
+          10
+
+        ]
+
+      },
+
+      "id": "us6000sy7u"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5.3,
+
+        "place": "94 km E of Port-Vila, Vanuatu",
+
+        "time": 1778936370959,
+
+        "updated": 1778937308040,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy7l",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy7l&format=geojson",
+
+        "felt": null,
+
+        "cdi": null,
+
+        "mmi": null,
+
+        "alert": null,
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 432,
+
+        "net": "us",
+
+        "code": "6000sy7l",
+
+        "ids": ",usauto6000sy7l,us6000sy7l,",
+
+        "sources": ",usauto,us,",
+
+        "types": ",internal-moment-tensor,moment-tensor,origin,phase-data,",
+
+        "nst": 38,
+
+        "dmin": 3.058,
+
+        "rms": 0.51,
+
+        "gap": 116,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 5.3 - 94 km E of Port-Vila, Vanuatu"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          169.1937,
+
+          -17.8503,
+
+          10
+
+        ]
+
+      },
+
+      "id": "us6000sy7l"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5,
+
+        "place": "5 km WSW of Badak, Philippines",
+
+        "time": 1778930743857,
+
+        "updated": 1778938775780,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy76",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy76&format=geojson",
+
+        "felt": 9,
+
+        "cdi": 5.5,
+
+        "mmi": null,
+
+        "alert": null,
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 390,
+
+        "net": "us",
+
+        "code": "6000sy76",
+
+        "ids": ",us6000sy76,usauto6000sy76,",
+
+        "sources": ",us,usauto,",
+
+        "types": ",dyfi,internal-moment-tensor,origin,phase-data,",
+
+        "nst": 56,
+
+        "dmin": 0.924,
+
+        "rms": 0.91,
+
+        "gap": 42,
+
+        "magType": "mww",
+
+        "type": "earthquake",
+
+        "title": "M 5.0 - 5 km WSW of Badak, Philippines"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          124.6816,
+
+          6.8241,
+
+          10
+
+        ]
+
+      },
+
+      "id": "us6000sy76"
+
+    },
+
+    {
+
+      "type": "Feature",
+
+      "properties": {
+
+        "mag": 5,
+
+        "place": "Kermadec Islands region",
+
+        "time": 1778914135360,
+
+        "updated": 1778915822040,
+
+        "tz": null,
+
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sy5x",
+
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000sy5x&format=geojson",
+
+        "felt": null,
+
+        "cdi": null,
+
+        "mmi": null,
+
+        "alert": null,
+
+        "status": "reviewed",
+
+        "tsunami": 0,
+
+        "sig": 385,
+
+        "net": "us",
+
+        "code": "6000sy5x",
+
+        "ids": ",us6000sy5x,",
+
+        "sources": ",us,",
+
+        "types": ",origin,phase-data,",
+
+        "nst": 25,
+
+        "dmin": 2.685,
+
+        "rms": 0.97,
+
+        "gap": 132,
+
+        "magType": "mb",
+
+        "type": "earthquake",
+
+        "title": "M 5.0 - Kermadec Islands region"
+
+      },
+
+      "geometry": {
+
+        "type": "Point",
+
+        "coordinates": [
+
+          -178.203,
+
+          -31.9282,
+
+          10
+
+        ]
+
+      },
+
+      "id": "us6000sy5x"
+
+    }
+
+  ],
+
+  "bbox": [
+
+    -178.203,
+
+    -31.9282,
+
+    10,
+
+    169.2036,
+
+    17.5127,
+
+    30.038
+
+  ]
+
+}
