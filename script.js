@@ -68,57 +68,120 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   LOAD REAL EARTHQUAKES
   (USGS LIVE API)
 */
-fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
-  .then(response => response.json())
-  .then(data => {
-    data.features.forEach(quake => {
-      const coords = quake.geometry.coordinates;
-      const lng = coords[0];
-      const lat = coords[1];
-      const depth = coords[2];
+const markersLayer = L.layerGroup().addTo(map);
+const datePicker = document.getElementById('date-picker');
+const btnToday = document.getElementById('btn-today');
+const btnYesterday = document.getElementById('btn-yesterday');
 
-      const magnitude = quake.properties.mag;
-      const place = quake.properties.place;
-      const time = new Date(quake.properties.time);
+const DEFAULT_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 
-      /*
-        EARTHQUAKE CIRCLE
-      */
-      const circle = L.circleMarker([lat, lng], {
-        radius: magnitude ? magnitude * 2.5 : 5,
-        color: "red",
-        fillColor: "#f03",
-        fillOpacity: 0.5
-      }).addTo(map);
+function loadEarthquakes(url) {
+  // Clear previous data
+  document.getElementById('eq-magnitude').textContent = "__";
+  document.getElementById('eq-location').textContent = "__";
+  document.getElementById('eq-date').textContent = "__";
+  document.getElementById('eq-depth').textContent = "__";
+  document.getElementById('eq-distance').textContent = "__";
+  
+  markersLayer.clearLayers();
 
-      circle.bindPopup(`
-        <strong>${place}</strong><br>
-        Magnitude: ${magnitude}<br>
-        Depth: ${depth} km
-      `);
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      data.features.forEach(quake => {
+        const coords = quake.geometry.coordinates;
+        const lng = coords[0];
+        const lat = coords[1];
+        const depth = coords[2];
 
-      /*
-        OBSŁUGA KLIKNIĘCIA W PUNKT NA MAPIE
-      */
-      circle.on('click', () => {
-        document.getElementById('eq-magnitude').textContent = magnitude != null ? magnitude.toFixed(1) : "__";
-        document.getElementById('eq-location').textContent = place || "__";
-        document.getElementById('eq-date').textContent = time.toLocaleString('pl-PL');
-        document.getElementById('eq-depth').textContent = `${depth} km`;
+        const magnitude = quake.properties.mag;
+        const place = quake.properties.place;
+        const time = new Date(quake.properties.time);
 
-        const distField = document.getElementById('eq-distance');
-        if (userCoords) {
-          const distance = calculateDistance(userCoords[0], userCoords[1], lat, lng);
-          distField.textContent = `${distance.toLocaleString('pl-PL')} km`;
-        } else {
-          distField.textContent = "Allow location access to calculate";
-        }
+        /*
+          EARTHQUAKE CIRCLE
+        */
+        const circle = L.circleMarker([lat, lng], {
+          radius: magnitude ? magnitude * 2.5 : 5,
+          color: "red",
+          fillColor: "#f03",
+          fillOpacity: 0.5
+        }).addTo(markersLayer);
+
+        circle.bindPopup(`
+          <strong>${place}</strong><br>
+          Magnitude: ${magnitude}<br>
+          Depth: ${depth} km
+        `);
+
+        /*
+          OBSŁUGA KLIKNIĘCIA W PUNKT NA MAPIE
+        */
+        circle.on('click', () => {
+          document.getElementById('eq-magnitude').textContent = magnitude != null ? magnitude.toFixed(1) : "__";
+          document.getElementById('eq-location').textContent = place || "__";
+          document.getElementById('eq-date').textContent = time.toLocaleString('pl-PL');
+          document.getElementById('eq-depth').textContent = `${depth} km`;
+
+          const distField = document.getElementById('eq-distance');
+          if (userCoords) {
+            const distance = calculateDistance(userCoords[0], userCoords[1], lat, lng);
+            distField.textContent = `${distance.toLocaleString('pl-PL')} km`;
+          } else {
+            distField.textContent = "Allow location access to calculate";
+          }
+        });
       });
+    })
+    .catch(error => {
+      console.error("Earthquake API error:", error);
     });
-  })
-  .catch(error => {
-    console.error("Earthquake API error:", error);
-  });
+}
+
+function getCustomDateUrl(dateString) {
+  const start = new Date(dateString);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 1);
+
+  const startStr = start.toISOString().split('T')[0];
+  const endStr = end.toISOString().split('T')[0];
+  return `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startStr}&endtime=${endStr}`;
+}
+
+function getTodayString() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+// Initial state
+datePicker.value = getTodayString();
+loadEarthquakes(DEFAULT_URL);
+
+btnToday.addEventListener('click', () => {
+  datePicker.value = getTodayString();
+  loadEarthquakes(DEFAULT_URL);
+});
+
+btnYesterday.addEventListener('click', () => {
+  const yest = new Date();
+  yest.setDate(yest.getDate() - 1);
+  const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
+  datePicker.value = yestStr;
+  loadEarthquakes(getCustomDateUrl(yestStr));
+});
+
+datePicker.addEventListener('change', (e) => {
+  const val = e.target.value;
+  if(val) {
+    if (val === getTodayString()) {
+      loadEarthquakes(DEFAULT_URL);
+    } else {
+      loadEarthquakes(getCustomDateUrl(val));
+    }
+  } else {
+    loadEarthquakes(DEFAULT_URL);
+  }
+});
 
 
 /*

@@ -24,7 +24,12 @@ html {
   }
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 [data-theme="light"] {
+  color-scheme: light;
   --bg:   #dde1e7;
   --card: #e8ecf0;
   --muted: #5a6170;
@@ -119,6 +124,32 @@ main.wrap {
   color: #999;
   margin-bottom: 20px;
   font-size: 1rem;
+}
+
+.map-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.map-controls input[type="date"],
+.ctrl-btn {
+  background: var(--card);
+  color: var(--white);
+  border: 1px solid rgba(128,128,128,0.4);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.map-controls input[type="date"]:hover,
+.ctrl-btn:hover {
+  border-color: var(--accent);
 }
 
 .info-row {
