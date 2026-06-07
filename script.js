@@ -71,6 +71,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 const markersLayer = L.layerGroup().addTo(map);
 const datePicker = document.getElementById('date-picker');
 const btnToday = document.getElementById('btn-today');
+const btnLast24 = document.getElementById('btn-last24');
 const btnYesterday = document.getElementById('btn-yesterday');
 
 const DEFAULT_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
@@ -153,8 +154,9 @@ function getTodayString() {
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 }
 
-function updateActiveControl(selectedDate) {
+function updateActiveControl(selectedDate, isLast24 = false) {
   btnToday.classList.remove('active');
+  btnLast24.classList.remove('active');
   btnYesterday.classList.remove('active');
   datePicker.classList.remove('active');
 
@@ -162,7 +164,9 @@ function updateActiveControl(selectedDate) {
   yest.setDate(yest.getDate() - 1);
   const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
 
-  if (selectedDate === getTodayString()) {
+  if (isLast24) {
+    btnLast24.classList.add('active');
+  } else if (selectedDate === getTodayString()) {
     btnToday.classList.add('active');
   } else if (selectedDate === yestStr) {
     btnYesterday.classList.add('active');
@@ -173,14 +177,20 @@ function updateActiveControl(selectedDate) {
 
 // Initial state
 datePicker.value = getTodayString();
-updateActiveControl(getTodayString());
+updateActiveControl(getTodayString(), true);
 loadEarthquakes(DEFAULT_URL);
+
+btnLast24.addEventListener('click', () => {
+  datePicker.value = getTodayString();
+  updateActiveControl(getTodayString(), true);
+  loadEarthquakes(DEFAULT_URL);
+});
 
 btnToday.addEventListener('click', () => {
   const todayStr = getTodayString();
   datePicker.value = todayStr;
-  updateActiveControl(todayStr);
-  loadEarthquakes(DEFAULT_URL);
+  updateActiveControl(todayStr, false);
+  loadEarthquakes(getCustomDateUrl(todayStr));
 });
 
 btnYesterday.addEventListener('click', () => {
@@ -188,22 +198,18 @@ btnYesterday.addEventListener('click', () => {
   yest.setDate(yest.getDate() - 1);
   const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
   datePicker.value = yestStr;
-  updateActiveControl(yestStr);
+  updateActiveControl(yestStr, false);
   loadEarthquakes(getCustomDateUrl(yestStr));
 });
 
 datePicker.addEventListener('change', (e) => {
   const val = e.target.value;
   if(val) {
-    updateActiveControl(val);
-    if (val === getTodayString()) {
-      loadEarthquakes(DEFAULT_URL);
-    } else {
-      loadEarthquakes(getCustomDateUrl(val));
-    }
+    updateActiveControl(val, false);
+    loadEarthquakes(getCustomDateUrl(val));
   } else {
     datePicker.value = getTodayString();
-    updateActiveControl(getTodayString());
+    updateActiveControl(getTodayString(), true);
     loadEarthquakes(DEFAULT_URL);
   }
 });
