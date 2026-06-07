@@ -153,12 +153,33 @@ function getTodayString() {
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 }
 
+function updateActiveControl(selectedDate) {
+  btnToday.classList.remove('active');
+  btnYesterday.classList.remove('active');
+  datePicker.classList.remove('active');
+
+  const yest = new Date();
+  yest.setDate(yest.getDate() - 1);
+  const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
+
+  if (selectedDate === getTodayString()) {
+    btnToday.classList.add('active');
+  } else if (selectedDate === yestStr) {
+    btnYesterday.classList.add('active');
+  } else {
+    datePicker.classList.add('active');
+  }
+}
+
 // Initial state
 datePicker.value = getTodayString();
+updateActiveControl(getTodayString());
 loadEarthquakes(DEFAULT_URL);
 
 btnToday.addEventListener('click', () => {
-  datePicker.value = getTodayString();
+  const todayStr = getTodayString();
+  datePicker.value = todayStr;
+  updateActiveControl(todayStr);
   loadEarthquakes(DEFAULT_URL);
 });
 
@@ -167,18 +188,22 @@ btnYesterday.addEventListener('click', () => {
   yest.setDate(yest.getDate() - 1);
   const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
   datePicker.value = yestStr;
+  updateActiveControl(yestStr);
   loadEarthquakes(getCustomDateUrl(yestStr));
 });
 
 datePicker.addEventListener('change', (e) => {
   const val = e.target.value;
   if(val) {
+    updateActiveControl(val);
     if (val === getTodayString()) {
       loadEarthquakes(DEFAULT_URL);
     } else {
       loadEarthquakes(getCustomDateUrl(val));
     }
   } else {
+    datePicker.value = getTodayString();
+    updateActiveControl(getTodayString());
     loadEarthquakes(DEFAULT_URL);
   }
 });

@@ -148,7 +148,9 @@ main.wrap {
 }
 
 .map-controls input[type="date"]:hover,
-.ctrl-btn:hover {
+.ctrl-btn:hover,
+.map-controls input[type="date"].active,
+.ctrl-btn.active {
   border-color: var(--accent);
 }
 
